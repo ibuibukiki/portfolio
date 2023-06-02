@@ -116,7 +116,7 @@ class AppealCard extends HookConsumerWidget {
                           children: [
                             const SizedBox(width: 20),
                             Container(
-                              height: 400,
+                              height: 360,
                               width:
                                   path.contains("oko") || path.contains("memo")
                                       ? 180
