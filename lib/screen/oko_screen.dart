@@ -22,18 +22,32 @@ class OkoScreen extends HookConsumerWidget {
       Image.asset('assets/img/oko_output.png', height: 600),
     ];
 
+    final textList1 = [
+      "電卓のキーボードを実装",
+      "デフォルトのキーボードを採用せず,\n電卓用のキーボードを自作",
+      "・入力した計算式を表示",
+      "・数字を入力するたびに答えを計算",
+    ];
+
+    final textList2 = [
+      "エフェクトの実装",
+      "連続でタップした時に\n予期せぬ動作がおこらないように工夫",
+      "・タップした部分が浮き出るように表示",
+      "・ウインドウをタップした位置の反対側に表示",
+    ];
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         title: null,
         toolbarHeight: 0,
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: screenHeight,
-          width: screenWidth,
-          color: const Color(0xffdcdcdc),
-          padding: const EdgeInsets.only(left: 20, top: 20),
+      body: Container(
+        height: screenHeight,
+        width: screenWidth,
+        color: const Color(0xffdcdcdc),
+        padding: const EdgeInsets.only(left: 20, top: 20),
+        child: SingleChildScrollView(
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -103,10 +117,16 @@ class OkoScreen extends HookConsumerWidget {
                       ),
                       const SizedBox(height: 8),
                       Row(
-                        children: const [
-                          AppealCard(),
-                          SizedBox(width: 24),
-                          AppealCard(),
+                        children: [
+                          AppealCard(
+                            path: "oko_keyboard.mp4",
+                            textList: textList1,
+                          ),
+                          const SizedBox(width: 24),
+                          AppealCard(
+                            path: "oko_detail.mp4",
+                            textList: textList2,
+                          ),
                         ],
                       ),
                     ],

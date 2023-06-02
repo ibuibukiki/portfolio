@@ -22,18 +22,25 @@ class SensorScreen extends HookConsumerWidget {
       Image.asset('assets/img/sensor_save.png', height: 600),
     ];
 
+    final textList1 = [
+      "データをグラフとして表示",
+      "x,y,z軸のセンサのデータを,\nリアルタイムで表示",
+      "・データをすぐに確認できるよう, 変動するグラフを実装",
+      "・負荷がかからないように10回ごとの値を表示",
+    ];
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         title: null,
         toolbarHeight: 0,
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: screenHeight,
-          width: screenWidth,
-          color: const Color(0xffdcdcdc),
-          padding: const EdgeInsets.only(left: 20, top: 20),
+      body: Container(
+        height: screenHeight,
+        width: screenWidth,
+        color: const Color(0xffdcdcdc),
+        padding: const EdgeInsets.only(left: 20, top: 20),
+        child: SingleChildScrollView(
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -103,10 +110,11 @@ class SensorScreen extends HookConsumerWidget {
                       ),
                       const SizedBox(height: 8),
                       Row(
-                        children: const [
-                          AppealCard(),
-                          SizedBox(width: 24),
-                          AppealCard(),
+                        children: [
+                          AppealCard(
+                            path: "sensor_graph.mp4",
+                            textList: textList1,
+                          ),
                         ],
                       ),
                     ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'oko_screen.dart';
 import 'memo_screen.dart';
@@ -15,12 +16,15 @@ class MainScreen extends HookConsumerWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
 
+    final isMouseHover = useState("");
+
     Widget appCard(String appName, String imgPath) {
       return Container(
         height: 360,
         width: 260,
         margin: const EdgeInsets.all(24),
         decoration: const BoxDecoration(
+          color: Color(0xfff5f5f5),
           boxShadow: [
             BoxShadow(
               color: Color(0xff3f3f3f),
@@ -30,13 +34,15 @@ class MainScreen extends HookConsumerWidget {
             ),
           ],
         ),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            minimumSize: Size.zero,
-            padding: EdgeInsets.zero,
-            backgroundColor: const Color(0xfff5f5f5),
-          ),
-          onPressed: () {
+        child: InkWell(
+          onHover: (isHover) {
+            if (isHover) {
+              isMouseHover.value = appName;
+            } else {
+              isMouseHover.value = "";
+            }
+          },
+          onTap: () {
             if (imgPath.contains("oko")) {
               Navigator.push(
                 context,
@@ -112,10 +118,12 @@ class MainScreen extends HookConsumerWidget {
                   children: [
                     Text(
                       appName,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xfff5f5f5),
+                      style: TextStyle(
+                        fontSize: isMouseHover.value == appName ? 20 : 18,
+                        fontWeight: isMouseHover.value == appName
+                            ? FontWeight.w900
+                            : FontWeight.w600,
+                        color: const Color(0xfff5f5f5),
                       ),
                       textScaleFactor: 1.0,
                       textAlign: TextAlign.center,
@@ -139,7 +147,7 @@ class MainScreen extends HookConsumerWidget {
       body: Container(
         height: screenHeight,
         width: screenWidth,
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.only(left: 24, top: 24),
         color: const Color(0xffdcdcdc),
         child: SingleChildScrollView(
           child: Column(

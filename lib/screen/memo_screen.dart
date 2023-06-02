@@ -22,18 +22,32 @@ class MemoScreen extends HookConsumerWidget {
       Image.asset('assets/img/memo_new.png', height: 600),
     ];
 
+    final textList1 = [
+      "フォルダの階層構造を実装",
+      "階層構造が成り立つように\nデータベースを設計",
+      "・木構造の要領で階層構造を作成",
+      "・枝をたどることでパンくずリストを作成",
+    ];
+
+    final textList2 = [
+      "編集機能を実装",
+      "コマンド Z , コマンド Y の\n役割を持つボタンを実装",
+      "・入力した内容をログとして持っておく",
+      "・ボタンの操作に従ってログを移動",
+    ];
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         title: null,
         toolbarHeight: 0,
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: screenHeight,
-          width: screenWidth,
-          color: const Color(0xffdcdcdc),
-          padding: const EdgeInsets.only(left: 20, top: 20),
+      body: Container(
+        height: screenHeight,
+        width: screenWidth,
+        color: const Color(0xffdcdcdc),
+        padding: const EdgeInsets.only(left: 20, top: 20),
+        child: SingleChildScrollView(
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -103,10 +117,16 @@ class MemoScreen extends HookConsumerWidget {
                       ),
                       const SizedBox(height: 8),
                       Row(
-                        children: const [
-                          AppealCard(),
-                          SizedBox(width: 24),
-                          AppealCard(),
+                        children: [
+                          AppealCard(
+                            path: "memo_directory.mp4",
+                            textList: textList1,
+                          ),
+                          const SizedBox(width: 24),
+                          AppealCard(
+                            path: "memo_edit.mp4",
+                            textList: textList2,
+                          ),
                         ],
                       ),
                     ],
