@@ -88,7 +88,7 @@ class AppealCard extends HookConsumerWidget {
                     child: Row(
                       children: [
                         Text(
-                          textList[0], //"電卓のキーボードを実装",
+                          textList[0],
                           style: const TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.w900,
@@ -144,8 +144,7 @@ class AppealCard extends HookConsumerWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  textList[
-                                      1], //"デフォルトのキーボードを採用せず,\n電卓用のキーボードを自作",
+                                  textList[1],
                                   style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w700,

@@ -160,7 +160,7 @@ class MainScreen extends HookConsumerWidget {
               const SizedBox(height: 60),
               const Text(
                 "過去に作成したアプリ一覧",
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 width: screenWidth,
