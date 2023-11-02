@@ -93,7 +93,7 @@ class MemoScreen extends HookConsumerWidget {
                       ),
                       const SizedBox(height: 24),
                       const Text(
-                        "Android・ios リリース済み",
+                        "Android版 リリース済み",
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w900,

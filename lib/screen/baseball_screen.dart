@@ -93,7 +93,7 @@ class BaseballScreen extends HookConsumerWidget {
                       ),
                       const SizedBox(height: 24),
                       const Text(
-                        "Android リリース済み",
+                        "Android版 リリース準備中",
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w900,
